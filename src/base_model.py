@@ -9,15 +9,14 @@ logger = get_logger(__name__)
 class BaseModel:
     def __init__(self,config_path):
         try:
-            self.config=read_yaml(config_path)
-            logger.info("Loaded Configuration from config.yaml")
+            self.config = read_yaml(config_path)
+            logger.info("Loaded configuration from config.yaml")
         except Exception as e:
-            logger.error("Failed to load configuration from config.yaml")
-            raise CustomException("Can't read config file",e)
-        
+            raise CustomException("Error loading configuration",e)
+    
     def RecommenderNet(self,n_users,n_anime):
         try:
-            embedding_size =self.config['model']['embedding_size']
+            embedding_size = self.config["model"]["embedding_size"]
 
             user = Input(name="user",shape=[1])
 
@@ -37,11 +36,11 @@ class BaseModel:
 
             model = Model(inputs=[user,anime], outputs=x)
             model.compile(
-                loss=self.config['model']['loss'],
-                optimizer=self.config['model']['optimizer'],
-                metrics=self.config['model']['metrics']
+                loss = self.config["model"]["loss"],
+                optimizer = self.config["model"]["optimizer"],
+                metrics = self.config["model"]["metrics"]
             )
-            logger.info("Model created sucessfully")
+            logger.info("Model created sucesfully....")
             return model
         except Exception as e:
             logger.error(f"Error occurfed during model architecture {e}")

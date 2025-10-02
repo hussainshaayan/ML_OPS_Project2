@@ -15,9 +15,9 @@ class ModelTraining:
         self.data_path= data_path
 
         self.experiment = comet_ml.Experiment(
-            api_key="Capikz5YTSBiEbguyH8aNR44S",
-            project_name="ml-ops-project2",
-            workspace="hussainshaayan"
+            api_key="uqgrnGhGvBA0zC3HfdmGf2WN9",
+            project_name="mlops-course-2",
+            workspace="data-guru0"
         )
         logger.info("Model Training & COMET ML initialized..")
     
@@ -99,7 +99,7 @@ class ModelTraining:
             self.save_model_weights(model)
 
         except Exception as e:
-            # logger.error(str(e))
+            logger.error(str(e))
             raise CustomException("Errorduring Model Trainig Process",e)
         
     def extract_weights(self,layer_name,model):
@@ -137,3 +137,11 @@ class ModelTraining:
 if __name__=="__main__":
     model_trainer = ModelTraining(PROCESSED_DIR)
     model_trainer.train_model()
+    
+
+
+
+
+        
+
+
