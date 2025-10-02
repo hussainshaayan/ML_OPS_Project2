@@ -3,10 +3,9 @@ pipeline {
 
     environment {
         VENV_DIR = 'venv'
-        GCP_PROJECT = '	direct-cocoa-471916-t6'
+        GCP_PROJECT = 'direct-cocoa-471916-t6'
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
         KUBECTL_AUTH_PLUGIN = "/usr/lib/google-cloud-sdk/bin"
-
     }
 
     stages{
@@ -15,10 +14,11 @@ pipeline {
             steps{
                 script{
                     echo 'Cloning from Github...'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/hussainshaayan/ML_OPS_Project2.git']])
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/data-guru0/MLOPS-COURSE-PROJECT-2.git']])
                 }
             }
         }
+
         stage("Making a virtual environment...."){
             steps{
                 script{
@@ -33,11 +33,13 @@ pipeline {
                 }
             }
         }
+
+
         stage('DVC Pull'){
             steps{
-                withCredentials([file(credentialsId:'gcp_key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
+                withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
                     script{
-                        echo 'DVC Pull....'
+                        echo 'DVC Pul....'
                         sh '''
                         . ${VENV_DIR}/bin/activate
                         dvc pull
@@ -47,9 +49,10 @@ pipeline {
             }
         }
 
+
         stage('Build and Push Image to GCR'){
             steps{
-                withCredentials([file(credentialsId:'gcp_key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
+                withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
                     script{
                         echo 'Build and Push Image to GCR'
                         sh '''
@@ -65,9 +68,10 @@ pipeline {
             }
         }
 
+
         stage('Deploying to Kubernetes'){
             steps{
-                withCredentials([file(credentialsId:'gcp_key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
+                withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
                     script{
                         echo 'Deploying to Kubernetes'
                         sh '''
@@ -81,6 +85,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
