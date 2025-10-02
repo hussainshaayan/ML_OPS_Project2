@@ -1,0 +1,20 @@
+2025-09-23 00:49:17,862 - INFO - Data Processing Initialized
+2025-09-23 00:49:19,872 - INFO - Data loaded sucesfully for Data Processing
+2025-09-23 00:49:20,189 - INFO - User sucessfully Filtered
+2025-09-23 00:50:04,992 - INFO - Data Processing Initialized
+2025-09-23 00:50:06,943 - INFO - Data loaded sucesfully for Data Processing
+2025-09-23 00:50:07,189 - INFO - User sucessfully Filtered
+2025-09-23 00:50:08,628 - INFO - Scaling done for processing
+2025-09-23 00:50:30,832 - INFO - Data Processing Initialized
+2025-09-23 00:50:32,928 - INFO - Data loaded sucesfully for Data Processing
+2025-09-23 00:50:33,189 - INFO - User sucessfully Filtered
+2025-09-23 00:50:34,522 - INFO - Scaling done for processing
+2025-09-23 00:50:34,724 - INFO - Encoding performed sucessfully
+2025-09-23 00:50:36,309 - INFO - Data is sucessfully splitted
+2025-09-23 00:50:36,328 - INFO - user2user_encoded saved successfully in the processed
+2025-09-23 00:50:36,341 - INFO - user2user_decoded saved successfully in the processed
+2025-09-23 00:50:36,381 - INFO - anim2anime_encoded saved successfully in the processed
+2025-09-23 00:50:36,422 - INFO - anim2anime_decoded saved successfully in the processed
+2025-09-23 00:50:43,681 - INFO - ALl the training testing data as well as rating_df is saved now..
+2025-09-23 00:50:52,005 - INFO - DF AND SYNOPSIS_Df saved sucesfullyy...
+2025-09-23 00:50:52,009 - INFO - Data Processing Pipeline Run sucesfully .... Congrats

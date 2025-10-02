@@ -1,0 +1,13 @@
+pandas
+numpy>=1.23 
+gcloud
+dvc
+setuptools
+pyyaml
+tensorflow
+google-cloud-storage
+dvc-gs
+flask
+joblib
+scikit-learn
+comet-ml
